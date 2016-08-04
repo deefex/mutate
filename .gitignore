@@ -1,0 +1,10 @@
+venv
+tmp
+*.pyc
+.idea
+.hypothesis
+logs
+old_logs
+.cache
+*.html
+*.sh
