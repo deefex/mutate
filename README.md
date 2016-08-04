@@ -43,4 +43,4 @@ The files passed can just be file names, relative or absolute paths but must exi
 * The tool doesn't deal with incompetent mutants (mutants that or get stuck) terribly well (or at all, if I'm honest)
 
 ## Current Mutations
-![current_mutators](/uploads/82d32f2e8db8d4a21c8ec588c9e3f214/current_mutators.png)
+![current mutators](current_mutators.png)
