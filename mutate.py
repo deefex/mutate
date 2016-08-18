@@ -58,13 +58,6 @@ def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
             mutator.mutate(x)
             compiled = compile(ast_visitor.initial_tree, '<ast>', 'exec')
 
-            #print '################# MUTANT DEBUG - start mutant summary'
-            #mutator.print_mutant(file_under_test)
-            #print '################# MUTANT DEBUG - end mutant summary'
-            #print '################# MUTANT DEBUG - start complete mutant code'
-            #print astor.to_source(ast_visitor.initial_tree)
-            #print '################# MUTANT DEBUG - end complete mutant code'
-
             compile_to_file(file_under_test.replace('.py', '.pyc'), compiled)
 
             failures = unit_test_failures(pytest_command)
