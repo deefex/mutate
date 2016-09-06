@@ -16,7 +16,7 @@ Currently, the tool focuses on mutation in the following operator classification
 Details of the specific mutations are shown in the mindmap below.
 
 ## Installation
-`git clone http://git.prod.skyscanner.local/DelDewar/mutate.git mutate`
+`git clone http://github.com/deefex/mutate.git mutate`
 
 `cd mutate`
 
