@@ -1,7 +1,5 @@
 import ast
-import copy
-from mutators.base_mutator import BaseMutator
-import astor as astor
+from base_mutator import BaseMutator
 
 
 class ConditionalRemovalMutator(BaseMutator):

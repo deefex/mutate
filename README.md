@@ -24,6 +24,8 @@ Details of the specific mutations are shown in the mindmap below.
 
 `pip install -r requirements.txt`
 
+or alternatively, try `pip install git+https://github.com/deefex/mutate.git`
+
 ## Usage:
 
 To try it out use the sample files included by running:

@@ -87,8 +87,7 @@ def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
     rename_file(file_under_test_backup, file_under_test)
 
 
-if __name__ == "__main__":
-
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--file", dest="file_under_test", help="path to source file", metavar="FILE")
     parser.add_argument("-t", "--test", dest="unit_test_suite", help="path to unit test file", metavar="FILE")
@@ -106,3 +105,6 @@ if __name__ == "__main__":
             print "Mutation Test Aborted: One or both of the file arguments doesn't exist"
     else:
         print "Mutation Test Aborted: One or both of the file arguments are missing"
+
+if __name__ == "__main__":
+    main()
