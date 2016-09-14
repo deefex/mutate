@@ -7,8 +7,9 @@ from mutators.arithmetic_operator_mutator import ArithmeticOperatorMutator
 from mutators.bitwise_operator_mutator import BitwiseOperatorMutator
 from mutators.unary_operator_mutator import UnaryOperatorMutator
 from mutators.conditional_removal_mutator import ConditionalRemovalMutator
-#from mutators.break_continue_mutator import BreakContinueMutator
-from utils import *
+# from mutators.break_continue_mutator import BreakContinueMutator
+
+from utils import get_file_as_string
 
 '''
 Possible additions/alternatives:
@@ -125,21 +126,22 @@ class AstVisitor(ast.NodeVisitor):
         self.genes['If'].append(node)
         self.generic_visit(node)
 
-    # TODO - These mutators currently don't work as they need to replace an entire AST node (as opposed to
-    # TODO - simply changing the attributes as the others do.
+# TODO - The break/continue mutators don't currently work - fix them
+# These mutators currently don't work as they need to replace an entire AST node
+# (as opposed to simply changing the attributes as the others do)
 
-    '''def visit_Break(self, node):
-        if 'Break' not in self.genes:
-            self.genes['Break'] = []
-        test = BreakContinueMutator(node)
-        self.mutators.append(test)
-        self.genes['Break'].append(node)
-        self.generic_visit(node)
-
-    def visit_Continue(self, node):
-        if 'Continue' not in self.genes:
-            self.genes['Continue'] = []
-        test = BreakContinueMutator(node)
-        self.mutators.append(test)
-        self.genes['Continue'].append(node)
-        self.generic_visit(node)'''
+    # def visit_Break(self, node):
+    #     if 'Break' not in self.genes:
+    #         self.genes['Break'] = []
+    #     test = BreakContinueMutator(node)
+    #     self.mutators.append(test)
+    #     self.genes['Break'].append(node)
+    #     self.generic_visit(node)
+    #
+    # def visit_Continue(self, node):
+    #     if 'Continue' not in self.genes:
+    #         self.genes['Continue'] = []
+    #     test = BreakContinueMutator(node)
+    #     self.mutators.append(test)
+    #     self.genes['Continue'].append(node)
+    #     self.generic_visit(node)

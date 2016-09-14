@@ -3,6 +3,7 @@ from setuptools import setup
 
 from mutate import __version__, __author__
 
+
 def read(fname):
     with open(fname) as fp:
         content = fp.read()

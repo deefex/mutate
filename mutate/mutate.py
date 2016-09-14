@@ -1,9 +1,18 @@
-import argparse, ast, time, os, sys
+# Standard Imports
+import argparse
+import ast
+import os
+import sys
+import time
 
+# Third Party Imports
+
+# Local Imports
 from ast_visitor import AstVisitor
 from logger import initialise_logger, print_and_log
-from utils import *
-import astor as astor
+from utils import compile_to_file, extract_file_name, get_file_as_string, rename_file, run_unit_tests, \
+    unit_test_failures
+
 
 def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
 
@@ -11,19 +20,20 @@ def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
     pytest_command = 'py.test -v ' + unit_test_suite
 
     # Set the log file path/name (should be OS independent)
-    if not os.path.exists('logs'): os.mkdir('logs')
-    if (mutation_log_file is not None):
+    if not os.path.exists('logs'):
+        os.mkdir('logs')
+    if mutation_log_file is not None:
         log_file = os.path.join('logs', mutation_log_file)
     else:
-        log_file = os.path.join('logs', extract_fut_name(file_under_test).replace('.py','.log'))
+        log_file = os.path.join('logs', extract_file_name(file_under_test).replace('.py', '.log'))
 
     logger = initialise_logger(log_file)
 
-    print_and_log(logger, 'Mutation Tester Run      : %s'%str(time.strftime("%d-%m-%Y %H:%M")))
-    print_and_log(logger, 'File Under Test          : %s'%file_under_test)
-    print_and_log(logger, 'Compiled File Under Test : %s'%file_under_test.replace('.py', '.pyc'))
-    print_and_log(logger, 'Unit Test Suite          : %s'%unit_test_suite)
-    print_and_log(logger, 'Log File                 : %s'%log_file)
+    print_and_log(logger, 'Mutation Tester Run      : %s' % str(time.strftime("%d-%m-%Y %H:%M")))
+    print_and_log(logger, 'File Under Test          : %s' % file_under_test)
+    print_and_log(logger, 'Compiled File Under Test : %s' % file_under_test.replace('.py', '.pyc'))
+    print_and_log(logger, 'Unit Test Suite          : %s' % unit_test_suite)
+    print_and_log(logger, 'Log File                 : %s' % log_file)
 
     sample_source = get_file_as_string(file_under_test)
 
@@ -79,7 +89,7 @@ def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
         print_and_log(logger, '\n\n' + '-' * 50)
         print_and_log(logger, 'Mutants survived         : {0}/{1}'.format(survived, mutant_count))
         print_and_log(logger, 'Mutants killed           : {0}/{1}'.format(killed, mutant_count))
-        print_and_log(logger, 'Mutant kill rate         : {0}%'.format(int(float(killed*100)/float(mutant_count))))
+        print_and_log(logger, 'Mutant kill rate         : {0}%'.format(int(float(killed * 100) / float(mutant_count))))
         print_and_log(logger, '-' * 50)
     else:
         print_and_log(logger, 'No mutants generated')
