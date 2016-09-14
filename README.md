@@ -15,20 +15,13 @@ Currently, the tool focuses on mutation in the following operator classification
   
 Details of the specific mutations are shown in the mindmap below.
 
-## Installation
-`git clone http://github.com/deefex/mutate.git mutate`
+## Easy Installation
 
-`cd mutate`
-
-[set up your virtual environment with python 2.7.x]
-
-`pip install -r requirements.txt`
-
-or alternatively, try `pip install git+https://github.com/deefex/mutate.git`
+From your virtualenv of choice, run `pip install git+https://github.com/deefex/mutate.git`
 
 ## Usage:
 
-To try it out use the sample files included by running:
+Command line invocation using two parameters, -f and -t to identify the file under test and the unit tests themselves:
 
 `mutate -f file_under_test.py -t test_file_under_test.py`
 
