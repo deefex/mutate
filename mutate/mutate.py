@@ -20,12 +20,12 @@ def mutation_tester(file_under_test, unit_test_suite, mutation_log_file):
     pytest_command = 'py.test -v ' + unit_test_suite
 
     # Set the log file path/name (should be OS independent)
-    if not os.path.exists('/tmp/logs'):
-        os.mkdir('/tmp/logs')
+    if not os.path.exists('mutate_logs'):
+        os.mkdir('mutate_logs')
     if mutation_log_file is not None:
-        log_file = os.path.join('/tmp/logs', mutation_log_file)
+        log_file = os.path.join('mutate_logs', mutation_log_file)
     else:
-        log_file = os.path.join('/tmp/logs', extract_file_name(file_under_test).replace('.py', '.log'))
+        log_file = os.path.join('mutate_logs', extract_file_name(file_under_test).replace('.py', '.log'))
 
     logger = initialise_logger(log_file)
 
